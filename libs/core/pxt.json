@@ -1,6 +1,7 @@
 {
     "name": "core",
-    "description": "The core library for Codal-based targets",
+    "description": "The Raspberry Pi Pico core library",
+    "additionalFilePath": "../base",
     "files": [
         "README.md",
         "dal.d.ts",
@@ -33,6 +34,8 @@
         "dmac.cpp",
         "dmac.h",
         "timer.ts",
+        "basic.cpp",
+        "led.cpp",
         "light.cpp",
         "light.h",
         "keyvaluestorage.cpp",
