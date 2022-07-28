@@ -3,6 +3,8 @@
 //% color=#8169E6 weight=85 icon="\uf205"
 namespace led {
 
+    CODAL_LEDMATRIX ledMtrix;
+
     /**
      * Turn on the specified LED using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.
      * @param x the horizontal coordinate of the LED starting at 0
@@ -14,6 +16,7 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void plot(int x, int y) {
+        ledMtrix.plot(x,y);
     }
 
     /**
@@ -42,6 +45,7 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void unplot(int x, int y) {
+        ledMtrix.unplot(x, y);
     }
 
     /**
