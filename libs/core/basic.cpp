@@ -63,5 +63,7 @@ namespace basic {
     //% blockId=device_KeepWait icon="\uf110"
     //% pause.shadow=timePicker
     void KeepWait(int ms) {
+        if (ms < 0) return;
+        sleep_ms(ms);
     }
 }

@@ -16,7 +16,9 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void plot(int x, int y) {
-        ledMtrix.plot(x,y);
+        //ledMtrix.plot(x,y);
+        auto led = LOOKUP_PIN(LED);
+        led->setDigitalValue(1);
     }
 
     /**
@@ -45,7 +47,9 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void unplot(int x, int y) {
-        ledMtrix.unplot(x, y);
+        //ledMtrix.unplot(x, y);
+        auto led = LOOKUP_PIN(LED);
+        led->setDigitalValue(0);
     }
 
     /**
@@ -60,6 +64,8 @@ namespace led {
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     //% advanced=true
     int pointBrightness(int x, int y) {
+
+        return 0;
     }
 
     /**
@@ -70,6 +76,8 @@ namespace led {
     //% parts="ledmatrix"
     //% advanced=true
     int brightness() {
+
+        return 0;
     }
 
     /**
