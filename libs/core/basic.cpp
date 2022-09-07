@@ -1,5 +1,7 @@
 #include "pxt.h"
 
+extern int ROW[5];
+extern int COL[5];
 
 //% color=#8169E6 weight=85 icon="\uf205"
 namespace basic {
@@ -16,6 +18,38 @@ namespace basic {
     //% block="show leds" icon="\uf00a"
     //% parts="ledmatrix"
     void showLeds(String leds, int interval = 400) {
+      int matrix[5][5] = { 
+                          {1,0,0,0,0},
+                          {1,0,0,0,0},
+                          {1,0,0,0,0},
+                          {1,0,0,0,0},
+                          {1,0,0,0,0}
+                          };
+
+      //matrix[x][y] = 1;
+
+      for ( int col = 0; col < 5; col++ )
+      {
+          auto led = pxt::lookupPin(getConfig( COL[col], -1));
+          led->setDigitalValue(0);
+
+          for ( int row = 0; row < 5; row++ )
+          {
+              auto led1 = pxt::lookupPin(getConfig( ROW[row], -1));
+              led1->setDigitalValue(matrix[col][row]);
+          }
+          
+          //TODO - SLR : Remove this delay
+          sleep_us(100);
+
+          for ( int row = 0; row < 5; row++ )
+          {
+              auto led1 = pxt::lookupPin(getConfig( ROW[row], -1));
+              led1->setDigitalValue(0);
+          }
+          
+          led->setDigitalValue(1);
+      }
     }
 
     /**
@@ -33,6 +67,38 @@ namespace basic {
     //% expandableArgumentMode="toggle"
     //% interval.defl=80
     void showString(String text, int interval = 80) {
+      int matrix[5][5] = { 
+                          {0,0,0,0,1},
+                          {0,0,0,0,1},
+                          {0,0,0,0,1},
+                          {0,0,0,0,1},
+                          {0,0,0,0,1}
+                          };
+
+      //matrix[x][y] = 1;
+
+      for ( int col = 0; col < 5; col++ )
+      {
+          auto led = pxt::lookupPin(getConfig( COL[col], -1));
+          led->setDigitalValue(0);
+
+          for ( int row = 0; row < 5; row++ )
+          {
+              auto led1 = pxt::lookupPin(getConfig( ROW[row], -1));
+              led1->setDigitalValue(matrix[row][col]);
+          }
+          
+          //TODO - SLR : Remove this delay
+          sleep_us(100);
+
+          for ( int row = 0; row < 5; row++ )
+          {
+              auto led1 = pxt::lookupPin(getConfig( ROW[row], -1));
+              led1->setDigitalValue(0);
+          }
+          
+          led->setDigitalValue(1);
+      }
     }
 
     /**
@@ -42,6 +108,14 @@ namespace basic {
     //% blockId=device_clear_display block="clear screen"
     //% parts="ledmatrix"
     void clearScreen() {
+      for(int x =0; x <= 4; x++)
+      {
+        auto led = pxt::lookupPin(getConfig( ROW[x], -1));
+        led->setDigitalValue(0);
+
+        led = pxt::lookupPin(getConfig( COL[x], -1));
+        led->setDigitalValue(1);
+      }
     }
 
     /**

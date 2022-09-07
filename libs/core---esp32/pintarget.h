@@ -23,7 +23,7 @@ class ZPin : RefObject {
 
     ZPin(int gpio_num);
     void disconnect();
-    int setDigitalValue(int value);
+    //int setDigitalValue(int value);
     int getDigitalValue();
     int setPull(PullMode pull);
     int getDigitalValue(PullMode pull);
