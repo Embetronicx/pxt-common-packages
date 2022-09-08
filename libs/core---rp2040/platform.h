@@ -9,6 +9,7 @@
 #include "RP2040Spi.h"
 #include "RP2040I2C.h"
 #include "RP2040PWM.h"
+#include "RP2040LedMatrix.h"
 
 #define IMAGE_BITS 4
 

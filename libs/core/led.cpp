@@ -23,17 +23,6 @@ namespace led {
     void plot(int x, int y) {
         ledMtrix.etx_plot(*pxt::lookupPin(getConfig( ROW[x], -1)),*pxt::lookupPin(getConfig( COL[y], -1)));
 #if 0
-#if 1
-        if( ( x <= 4 ) || ( y <= 4 ) )
-        {
-            int var = getConfig( ROW[x], -1);
-            auto led = pxt::lookupPin( var );
-            led->setDigitalValue(1);
-
-            led = pxt::lookupPin(getConfig( COL[y], -1));
-            led->setDigitalValue(0);
-        }
-#else
         int matrix[5][5] = { 
                             {0,0,0,0,0},
                             {0,0,0,0,0},
@@ -67,7 +56,6 @@ namespace led {
             led->setDigitalValue(1);
         }
 #endif
-#endif
     }
 
     /**
@@ -97,16 +85,6 @@ namespace led {
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void unplot(int x, int y) {
         ledMtrix.etx_unplot(*pxt::lookupPin(getConfig( ROW[x], -1)),*pxt::lookupPin(getConfig( COL[y], -1)));
-#if 0
-        if( ( x <= 4 ) || ( y <= 4 ) )
-        {
-            auto led = pxt::lookupPin(getConfig( ROW[x], -1));
-            led->setDigitalValue(0);
-
-            led = pxt::lookupPin(getConfig( COL[y], -1));
-            led->setDigitalValue(0);
-        }
-#endif
     }
     /**
      * Draws an image on the LED screen.
