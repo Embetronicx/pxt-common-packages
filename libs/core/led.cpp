@@ -96,8 +96,8 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void unplot(int x, int y) {
-        //ledMtrix.unplot(x, y);
-#if 1
+        ledMtrix.etx_unplot(*pxt::lookupPin(getConfig( ROW[x], -1)),*pxt::lookupPin(getConfig( COL[y], -1)));
+#if 0
         if( ( x <= 4 ) || ( y <= 4 ) )
         {
             auto led = pxt::lookupPin(getConfig( ROW[x], -1));
@@ -106,8 +106,6 @@ namespace led {
             led = pxt::lookupPin(getConfig( COL[y], -1));
             led->setDigitalValue(0);
         }
-#else
-
 #endif
     }
     /**
