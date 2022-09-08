@@ -29,6 +29,25 @@ void ZPin::disconnect() {
     status = 0;
 }
 
+int ZPin::setDigitalValue(int value) {
+    // Write the value, before setting as output - this way the pin state update will be atomic
+    gpio_set_level((gpio_num_t)gpio_num, value);
+
+    // Move into a Digital output state if necessary.
+    if (!(status & IO_STATUS_DIGITAL_OUT)) {
+        disconnect();
+
+        gpio_config_t cfg;
+        memset(&cfg, 0, sizeof(cfg));
+        cfg.pin_bit_mask = 1ULL << gpio_num;
+        cfg.mode = GPIO_MODE_OUTPUT;
+        gpio_config(&cfg);
+
+        status |= IO_STATUS_DIGITAL_OUT;
+    }
+
+    return 0;
+}
 
 int ZPin::getDigitalValue() {
     if (!(status & (IO_STATUS_DIGITAL_IN | IO_STATUS_EVENT_ON_EDGE | IO_STATUS_EVENT_PULSE_ON_EDGE |

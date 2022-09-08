@@ -21,8 +21,8 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void plot(int x, int y) {
-        //ledMtrix.plot(x,y);
-#if 1
+        ledMtrix.etx_plot(*pxt::lookupPin(getConfig( ROW[x], -1)),*pxt::lookupPin(getConfig( COL[y], -1)));
+#if 0
 #if 1
         if( ( x <= 4 ) || ( y <= 4 ) )
         {

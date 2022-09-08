@@ -27,7 +27,7 @@
 #define CODAL_SPI RP2040SPI
 #define CODAL_I2C RP2040I2C
 #define CODAL_TIMER Timer
-#define CODAL_LEDMATRIX LedMatrix
+#define CODAL_LEDMATRIX ETX_LedMatrix
 //#define CODAL_TEST RP2040Test
 
 #define QUICK_BOOT(v) ((void)0) // not supported
