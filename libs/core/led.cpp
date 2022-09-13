@@ -6,7 +6,16 @@ int COL[5] = { CFG_PIN_P5, CFG_PIN_P6, CFG_PIN_P7, CFG_PIN_P8, CFG_PIN_P9 };
 //% color=#8169E6 weight=85 icon="\uf205"
 namespace led {
 
-    CODAL_LEDMATRIX ledMtrix;
+    CODAL_LEDMATRIX ledMtrix( *pxt::lookupPin(getConfig( ROW[0], -1)),
+                              *pxt::lookupPin(getConfig( ROW[1], -1)),
+                              *pxt::lookupPin(getConfig( ROW[2], -1)),
+                              *pxt::lookupPin(getConfig( ROW[3], -1)),
+                              *pxt::lookupPin(getConfig( ROW[4], -1)),
+                              *pxt::lookupPin(getConfig( COL[0], -1)),
+                              *pxt::lookupPin(getConfig( COL[1], -1)),
+                              *pxt::lookupPin(getConfig( COL[2], -1)),
+                              *pxt::lookupPin(getConfig( COL[3], -1)),
+                              *pxt::lookupPin(getConfig( COL[4], -1)) );
 
     //CODAL_TEST test;
 
@@ -21,7 +30,7 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void plot(int x, int y) {
-        ledMtrix.etx_plot(*pxt::lookupPin(getConfig( ROW[x], -1)),*pxt::lookupPin(getConfig( COL[y], -1)));
+        ledMtrix.etx_plot(x, y);
 #if 0
         int matrix[5][5] = { 
                             {0,0,0,0,0},
@@ -84,7 +93,7 @@ namespace led {
     //% x.min=0 x.max=4 y.min=0 y.max=4
     //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     void unplot(int x, int y) {
-        ledMtrix.etx_unplot(*pxt::lookupPin(getConfig( ROW[x], -1)),*pxt::lookupPin(getConfig( COL[y], -1)));
+        ledMtrix.etx_unplot(x, y);
     }
     /**
      * Draws an image on the LED screen.
