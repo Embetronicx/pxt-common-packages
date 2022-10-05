@@ -3,12 +3,41 @@
 int ROW[5] = { CFG_PIN_P0, CFG_PIN_P1, CFG_PIN_P2, CFG_PIN_P3, CFG_PIN_P4 };
 int COL[5] = { CFG_PIN_P5, CFG_PIN_P6, CFG_PIN_P7, CFG_PIN_P8, CFG_PIN_P9 };
 
+//int ROW[5] = { 0, 1, 2, 3, 4 };
+//int COL[5] = { 5, 6, 7, 8, 9 };
+
 //% color=#8169E6 weight=85 icon="\uf205"
 namespace led {
 
-    CODAL_LEDMATRIX ledMtrix;
+    // RP2040Pin **rowPins = (RP2040Pin **)malloc( 5 * sizeof(void *));
+    // RP2040Pin **colPins = (RP2040Pin **)malloc( 5 * sizeof(void *));
 
-    //CODAL_TEST test;
+    // rowPins[0] = new DevicePin(DEVICE_ID_IO_P0 + ROW[0], (PinName)ROW[0], PIN_CAPABILITY_DIGITAL);
+    // rowPins[1] = new DevicePin(DEVICE_ID_IO_P0 + ROW[1], (PinName)ROW[1], PIN_CAPABILITY_DIGITAL);
+    // rowPins[2] = new DevicePin(DEVICE_ID_IO_P0 + ROW[2], (PinName)ROW[2], PIN_CAPABILITY_DIGITAL);
+    // rowPins[3] = new DevicePin(DEVICE_ID_IO_P0 + ROW[3], (PinName)ROW[3], PIN_CAPABILITY_DIGITAL);
+    // rowPins[4] = new DevicePin(DEVICE_ID_IO_P0 + ROW[4], (PinName)ROW[4], PIN_CAPABILITY_DIGITAL);
+
+    // colPins[0] = new DevicePin(DEVICE_ID_IO_P0 + COL[0], (PinName)COL[0], PIN_CAPABILITY_DIGITAL);
+    // colPins[1] = new DevicePin(DEVICE_ID_IO_P0 + COL[1], (PinName)COL[1], PIN_CAPABILITY_DIGITAL);
+    // colPins[2] = new DevicePin(DEVICE_ID_IO_P0 + COL[2], (PinName)COL[2], PIN_CAPABILITY_DIGITAL);
+    // colPins[3] = new DevicePin(DEVICE_ID_IO_P0 + COL[3], (PinName)COL[3], PIN_CAPABILITY_DIGITAL);
+    // colPins[4] = new DevicePin(DEVICE_ID_IO_P0 + COL[4], (PinName)COL[4], PIN_CAPABILITY_DIGITAL);
+
+    // rowPins[0] = *pxt::lookupPin(getConfig( ROW[0], -1));
+    // rowPins[1] = *pxt::lookupPin(getConfig( ROW[1], -1));
+    // rowPins[2] = *pxt::lookupPin(getConfig( ROW[2], -1));
+    // rowPins[3] = *pxt::lookupPin(getConfig( ROW[3], -1));
+    // rowPins[4] = *pxt::lookupPin(getConfig( ROW[4], -1));
+
+    // colPins[0] = *pxt::lookupPin(getConfig( COL[0], -1));
+    // colPins[1] = *pxt::lookupPin(getConfig( COL[1], -1));
+    // colPins[2] = *pxt::lookupPin(getConfig( COL[2], -1));
+    // colPins[3] = *pxt::lookupPin(getConfig( COL[3], -1));
+    // colPins[4] = *pxt::lookupPin(getConfig( COL[4], -1));
+
+    //CODAL_LEDMATRIX ledMtrix( rowPins, colPins );
+    CODAL_LEDMATRIX ledMtrix;
 
     /**
      * Turn on the specified LED using x, y coordinates (x is horizontal, y is vertical). (0,0) is upper left.

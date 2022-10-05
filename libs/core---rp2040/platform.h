@@ -29,7 +29,6 @@
 #define CODAL_I2C RP2040I2C
 #define CODAL_TIMER Timer
 #define CODAL_LEDMATRIX ETX_LedMatrix
-//#define CODAL_TEST RP2040Test
 
 #define QUICK_BOOT(v) ((void)0) // not supported
 #define UF2_INFO_TXT "UF2 Bootloader v1.0\nModel: Raspberry Pi RP2\nBoard-ID: RPI-RP2"
